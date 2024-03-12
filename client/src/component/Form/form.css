@@ -1,0 +1,107 @@
+label {
+    color: white;
+}
+
+.container_stavki > div {
+    margin: 30px auto;
+}
+
+.form div {
+    color: black;
+}
+
+.container_data_bets {
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100wh;
+}
+
+
+
+
+
+
+/* btn add delete */
+
+.container_btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+.container_btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #3c3c3c;
+    border-radius: 10%;
+}
+.container_btn button {
+    margin: 5px;
+}
+.btn_add {
+    background-color: aqua;
+    padding: 5px;
+    border-radius: 50%;
+}
+.btn_delete {
+    background-color: red;
+    padding: 5px;
+    border-radius: 50%;
+}
+.container_block_data_bets {
+    margin-top: 5px;
+    background-color: #3c3c3c;
+}
+img {
+    width: 25px;
+    height: 25px;
+} 
+
+
+
+
+
+
+
+/* drop menu */
+
+.cnt_menu_form {
+    position: absolute;
+    top: -5px;
+    left: 18px;
+
+}
+.flagMenu {
+    color: white;
+    background-color: blueviolet;
+    border-radius: 50%;
+    padding: 5px;
+}
+.active_btn {
+    color: black;
+}
+
+
+
+
+
+/* form add */
+
+.submit_btn {
+
+    background-color: aqua;
+    border-radius: 50%;
+    padding: 5px;
+    width: 70px;
+
+    margin: 10px;
+}
+
+.container_submit_btn {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}

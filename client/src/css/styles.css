@@ -1,0 +1,780 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Segoe UI, Tahoma, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Open Sans, sans-serif;
+    background-color: #282828;
+    position: relative;
+}
+
+header {
+    height: 50px !important;
+    position: fixed;
+    display: flex;
+    background: #126e51;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100vw;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Segoe UI,Tahoma,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Open Sans,sans-serif;;
+}
+
+.logo {
+    width: 36px;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    margin-left: -18.5px;
+
+
+    background-size: contain;
+}
+
+.hm-MobileNavButtons {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 42%;
+    -ms-flex: 0 0 42%;
+    flex: 0 0 42%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.hm-MobileNavButtons_AZWrapper {
+    padding: 10px;
+    width: 50%;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.hm-MobileNavButtons_AZIcon {
+    margin-right: 6px;
+    height: 9px;
+    fill: #26FFBE;
+    display: flex;
+}
+
+.hm-MobileNavButtons_Label {
+    color: rgb(228, 228, 228);
+    font-size: 14px;
+}
+
+.hm-MobileNavButtons_InPlay {
+    box-sizing: border-box;
+    display: flex;
+    color: rgb(228, 228, 228);
+    margin-left:-1px;
+    font-size: 14px;
+    padding: 10px 2px;
+    width: 50%;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+}
+
+.hm-LoggedInButtons {
+    box-sizing: border-box;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 42%;
+    -ms-flex: 0 0 42%;
+    flex: 0 0 42%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+
+}
+
+.hm-LoggedInButtons_MyBets {
+    box-sizing: border-box;
+    color: rgb(228, 228, 228);
+    padding-right: 0px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    font-size: 14px;
+    padding-right: 2px;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    max-width: 95px;
+}
+
+.hm-LoggedInButtons_MyBets:after {
+    position: absolute;
+    content: ' ';
+
+    width: 63%;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #ffdf1b;;
+}
+
+.hm-LoggedInButtons_MyBetsLabel {
+
+    position: relative;
+    text-align: center;
+
+}
+
+.hm-LoggedInButtons_MembersMenuContainer {
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-pack: center;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: center;
+    justify-content: flex-end;
+
+}
+
+.hm-MembersMenuButton {
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-width: 30px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-right: 0;
+
+}
+
+.hm-MembersMenuButton_Logo {
+    height: 22px;
+    width: 22px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+
+}
+
+.hm-MembersMenuButton_Balance {
+    color: #fff;
+    font-size: 11px;
+    line-height: 11px;
+    margin-top: 4px;
+    text-align: center;
+    padding-right: 3px;
+    white-space: nowrap;
+}
+
+
+
+.myb-MyBetsHeader_BackButton {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+}
+.myb-MyBetsHeader_BackButtonInner {
+    width: 45px;
+    height: 43px;
+    border-right: 1px solid #585858;
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.myb-MyBetsHeader_BackButtonIcon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 12' preserveAspectRatio='none'%3E%3Cpath fill='%23F8F8F8' fill-rule='evenodd' d='M6.216 12L7 11.243 1.569 6 7 .757 6.216 0 .784 5.243 0 6l.784.757z'/%3E%3C/svg%3E");
+    margin-top: 17px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 7px;
+    height: 12px;
+    background-repeat: no-repeat;
+}
+.myb-MyBetsHeader_Container {
+    -webkit-overflow-scrolling: auto;
+    overflow-x: auto;
+
+    height: 45px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    white-space: nowrap;
+    font-size: 0;
+    margin-left: 8px;
+}
+
+.myb-MyBetsHeader_Button {
+    display: inline-block;
+    padding: 15px 9px 15px 6px;
+    width: auto;
+    border: 0;
+    background-color: transparent;
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    line-height: 15px;
+    color: #c3c3c3;;
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 13px;
+    min-width: 45px;
+    text-align: center;
+
+}
+
+.myb-MyBetsHeader_Button.myb-MyBetsHeader_ButtonSelected {
+    color: #fff;
+    background-color: transparent;
+    text-shadow: none;
+    border: 0;
+
+}
+
+.myb-MyBetsHeader_Slider.myb-MyBetsHeader_Slider-animate {
+    -webkit-transition: all .2s;
+    transition: all .2s;
+
+
+}
+
+.myb-MyBetsHeader_Slider {
+    display: block;
+    position: relative;
+    bottom: 2px;
+    left: -100px;
+
+    height: 2px;
+    width: 45px;
+    background-color: #4acfa5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.myb-SettledBetParticipant_HeaderTitle {
+    position: relative;
+    display: table-cell;
+    padding: 0 11px 0 0;
+    width: 100%;
+    color: #ddd;
+    font-size: 15px;
+    line-height: 18px;
+    word-break: break-word;
+    padding-bottom:3px;
+}
+.result-hidden {
+
+ 
+    max-height:0 !important;
+}
+#results {
+    transition: all 0.25s ease-in-out;
+
+}
+#results > div {
+  margin-bottom: 5px;
+
+}
+
+
+.myb-SettledBetParticipant_Won .myb-SettledBetParticipant_Header::before {
+    -webkit-animation: myb-TickWithBorder_TickGrowIn;
+    animation: myb-TickWithBorder_TickGrowIn;
+    animation-duration: 0.5s;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    display: block;
+    position: relative;
+}
+
+.myb-SettledBetParticipant_Header::before {
+    content: " ";
+    width: 12px;
+    min-width: 12px;
+    height: 12px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    left: -18px;
+    top: 15px;
+}
+.myb-SettledBetParticipant_Won .myb-SettledBetParticipant_Header::before {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EMy Bets/~Elements/Bet/Status/Won%3C/title%3E%3Cg fill-rule='nonzero' fill='none'%3E%3Ccircle fill='%234ACFA5' cx='6' cy='6' r='6'/%3E%3Cpath fill='%230B1C19' d='M2.4 6.207L5.172 9.02l4.8-4.8-.579-.621-4.22 4.18L3.02 5.627z'/%3E%3C/g%3E%3C/svg%3E");
+
+}
+.myb-SettledBetParticipant_Lost {
+    margin-top: 10px;
+    position:relative !important;
+}
+.myb-SettledBetParticipant_Lost .myb-SettledBetParticipant_Header {
+    position:relative;
+}
+.myb-SettledBetParticipant_Lost .myb-SettledBetParticipant_Header::before {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EMy Bets/~Elements/Bet/Status/Lost%3C/title%3E%3Cg fill-rule='nonzero' fill='none'%3E%3Ccircle fill='%23C46464' cx='6' cy='6' r='6'/%3E%3Cpath fill='%23000' d='M6.414 6L8.69 3.724l-.414-.414L6 5.586 3.724 3.31l-.414.414L5.586 6 3.352 8.276l.414.414L6 6.414 8.234 8.69l.414-.414z'/%3E%3C/g%3E%3C/svg%3E");
+    left:-18px !important;
+    top:3px !important
+}
+.myb-SettledBetItem_HasLost .myb-SettledBetItemFooter_ReturnTextWrapper {
+    /*color:#a7a7a7;*/
+}
+.myb-SettledBetParticipant_HeaderText {
+    display: inline-block;
+    padding-right: 7px;
+
+}
+
+.myb-SettledBetParticipant_ParticipantSpan {
+    padding-right: 10px;
+    font-size: 14px;
+    color: #e4e4e4;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.myb-HalfAndHalfPill {
+    font-size: 12px;
+    color: #474747;
+    overflow: hidden;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: inline-block;
+    vertical-align: bottom;
+    position: relative;
+}
+
+.myb-SettledBetParticipant_HeaderOdds {
+    display: table-cell;
+    padding-right: 10px;
+    padding-bottom: 2px;
+    line-height: 15px;
+    width: auto;
+    color: #ddd;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.myb-SettledBetParticipant_MarketDescription {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    word-break: break-word;
+    word-wrap: break-word;
+    line-height: 15px;
+    max-height: calc(15px * 2);
+    font-size: 11px;
+    color: #c3c3c3;
+    padding-bottom: 3px;
+}
+
+.myb-SettledBetParticipant_FixtureDescription {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    word-break: break-word;
+    word-wrap: break-word;
+    line-height: 15px;
+    max-height: calc(15px * 2);
+    font-size: 11px;
+    color: #c3c3c3;
+    padding-bottom: 3px;
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+
+}
+
+.myb-SettledBetItemFooter {
+    position: relative;
+    border-top: 1px solid #737373;
+}
+
+.myb-SettledBetItemFooter_BetInformation {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+}
+
+.myb-SettledBetItemFooter_ReturnInformation, .myb-SettledBetItemFooter_StakeInformation {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 15px 11px 13px;
+    width: 50%;
+}
+
+.myb-SettledBetItemFooter_ReturnInformation {
+    padding-left: 0;
+}
+
+
+
+.myb-SettledBetItemFooter_ReturnLabel, .myb-SettledBetItemFooter_StakeLabel {
+    font-size: 10px;
+    line-height: 12px;
+    color: #c3c3c3;
+    padding-bottom: 4px;
+}
+
+.myb-SettledBetItemFooter_ReturnTextWrapper, .myb-SettledBetItemFooter_StakeTextWrapper {
+    color: #ddd;
+}
+
+.myb-SettledBetItemFooter_ReturnText, .myb-SettledBetItemFooter_StakeText {
+    line-height: 20px;
+    color: #ddd;
+    font-size: 16px;
+}
+
+.myb-SettledBetItemFooter_ReturnTextWrapper {
+    color: #ddd;
+}
+
+header {
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+#results {
+    overflow: hidden;
+    max-height: 500px;
+
+    transform-origin: 50% 0 0;
+    height:auto;
+}
+
+
+
+.button-selected {
+    position: relative;
+}
+
+.button-selected:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    width: 60%;
+    background-color: #ddd;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.siteContainer {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    min-height: 100vh;
+}
+
+.mcm-MobileConsoleModule_FooterContainer {
+    margin-top: -200px;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+}
+
+.fm-FooterModule {
+    background-color: #474747;
+    padding: 11px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+}
+
+.fm-BackToTop {
+    background-color: #545454;
+    padding: 11px;
+    color: #bbb;
+    height: 33px;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.fm-FooterModule_Logo {
+    display: block;
+    width: 104px;
+    height: 22px;
+    margin: 0 auto 22px;
+}
+
+
+
+
+
+.hm-MainHeaderLogoNarrow_Bet365LogoImage {
+    background-repeat:no-repeat;
+    background-position:50%;
+    -webkit-transition:-webkit-transform .1s;
+    transition:-webkit-transform .1s;
+    transition:transform .1s;
+    transition:transform .1s,-webkit-transform .1s;
+
+    background-size:contain;
+    -webkit-flex:0 0 36px;
+    -ms-flex:0 0 36px;
+    flex:0 0 36px;
+    background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg height='31' viewBox='0 0 36 31' width='36' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M25.383 10.573h-6.678c.118 1.107.98 1.632 2.605 1.632 1.136 0 2.311-.214 3.446-.641v2.585c-1.115.446-2.643.7-4.425.7-4.112 0-6.326-1.944-6.326-5.364 0-3.344 2.174-5.345 5.797-5.345 4.016 0 5.582 1.846 5.582 5.772v.66zm-4.19-1.964v-.31c0-1.148-.432-1.808-1.254-1.808-.842 0-1.272.66-1.272 1.827v.29h2.526zm11.28-4.197h2.233v2.974h-2.233v2.429c0 1.244.197 1.827 1.156 1.827.255 0 .606-.039 1.018-.137v2.916c-1.037.311-2.075.427-3.172.427-1.351 0-2.39-.427-2.997-1.167-.783-.971-.803-2.195-.803-3.827V7.386h-1.704V4.412h1.704V2.157L32.473.66z' fill='%23fff'/%3E%3Cpath d='M4.445 27.66c1.276 0 1.942-.417 1.942-1.286 0-.85-.686-1.322-2.019-1.322-.494 0-1.084.038-1.732.133v-2.872c.533.057 1.028.075 1.524.075 1.37 0 2.055-.396 2.055-1.302 0-.888-.627-1.304-1.922-1.304-.839 0-1.904.226-3.218.623v-2.984c1.161-.398 2.57-.586 4.226-.586 3.598 0 5.673 1.53 5.673 3.93 0 1.473-.97 2.549-2.665 2.909 1.884.377 2.855 1.416 2.855 3.002 0 2.494-2.113 3.948-6.148 3.948-1.352 0-2.684-.188-4.054-.51v-3.078c1.351.396 2.492.623 3.483.623zm15.018-5.914c2.837 0 4.721 1.719 4.721 4.25 0 2.72-2.15 4.61-5.54 4.61-3.997 0-6.567-2.475-6.567-6.536 0-4.629 2.723-7.235 7.633-7.235 1.048 0 2.172.113 3.332.358v3.005a10.82 10.82 0 0 0-3.18-.473c-2.169 0-3.178.869-3.235 2.834.8-.605 1.676-.813 2.836-.813zm.4 4.157c0-1.096-.627-1.796-1.541-1.796-.914 0-1.524.68-1.524 1.796 0 1.094.61 1.774 1.524 1.774.932 0 1.54-.68 1.54-1.774zm5.73-8.728h9.27v3.136h-4.93v1.983c.4-.019.667-.038.76-.038 3.066 0 4.722 1.53 4.722 4.118 0 2.664-2.018 4.25-5.958 4.25-1.37 0-2.723-.206-4.092-.547v-2.985c1.046.284 1.96.416 2.74.416 1.6 0 2.437-.53 2.437-1.512 0-1.095-.875-1.643-2.665-1.643-.762 0-1.503.132-2.284.321z' fill='%23ffdf1b'/%3E%3Cpath d='M.962 0H5.78v5.617c.686-.914 1.626-1.342 2.898-1.342 2.801 0 4.387 1.905 4.387 5.287 0 3.227-1.606 5.151-4.269 5.151-1.626 0-2.723-.583-3.349-1.827v1.69H.962zm4.68 9.464c0 1.478.334 2.197 1.195 2.197.843 0 1.215-.719 1.215-2.197 0-1.476-.353-2.195-1.215-2.195-.861 0-1.194.719-1.194 2.195z' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E")
+}
+
+.MainHeaderMembersNarrow_MembersMenuIcon {
+background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Cg fill-rule='evenodd' transform='translate(1 1)' stroke='%2326FFBE' fill='none'%3E%3Cpath d='M3.903 26.472C6.33 22.46 10.839 20 16 20c5.16 0 9.67 2.459 12.097 6.472A15.963 15.963 0 0 1 16 32a15.963 15.963 0 0 1-12.097-5.528z'/%3E%3Ccircle cx='16' cy='16' r='16'/%3E%3Cpath d='M16 17.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+@keyframes myb-TickWithBorder_TickGrowIn {
+    0% {
+        -webkit-transform:scale(0);
+        transform:scale(0)
+    }
+    80% {
+        -webkit-transform:scale(1.2);
+        transform:scale(1.2)
+    }
+    to {
+        -webkit-transform:scale(1);
+        transform:scale(1)
+    }
+}
+.myb-SettledBetItem_SubHeaderText {
+    color: #fff;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.myb-SettledBetItem_SubHeaderText span {
+    text-overflow: ellipsis;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* display toggle */
+
+.none {
+    display: none;
+}
+
+.aq-z-100 {
+    z-index: 200;
+}
+
+#el-bal-custom {
+    z-index: 500;
+}
+
+
+/*  */
+
+
+.animated {
+
+    transition-duration: 1.5s;
+    transform: rotate(360deg);
+
+}
+
+.animated_two {
+
+    transition-duration: 1.5s;
+    transform: rotate(360deg);
+
+}
+
+
+
+
+/*  */
+
+
+.whiteBal {
+    background-image: url("../Img/bal.svg");
+
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+
+
+
+/*  */
+
+
+.positionStyle_5 {
+    left: 360px; 
+    width: 56px;
+}
+
+.positionStyle_4 {
+    left: 255px; 
+    width: 105px;
+}
+
+.positionStyle_3 {
+    left: 174px; width: 81px;
+}
+.positionStyle_2 {
+    left: 109px; 
+    width: 65px;
+ }
+
+.positionStyle_1 {
+
+    left: 0px;
+    width: 109px;
+
+
+
+
+}
+
+#navSlider {
+    z-index: 1500;
+}
+
+
+.ccc {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+
+
+.bets_left {
+    display: flex;
+    justify-content: baseline;
+}
+
+.block_just_left {
+    display: flex;
+    justify-content: baseline;
+}

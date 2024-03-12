@@ -1,0 +1,25 @@
+.hm-MainHeaderLogoNarrow_Cover_styleEr {
+    opacity: 0;
+}
+
+.hm-MainHeaderNarrow_Indicator_styleEr {
+    width: 101.2px; 
+    transform: translateX(-111.2px);
+}
+
+.myb-NavBarSlider_styleEr {
+    left: 0; 
+    width: 51px;
+}
+
+.result-hidden {
+    display: none;
+}
+
+
+
+.flex_cl_cent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
