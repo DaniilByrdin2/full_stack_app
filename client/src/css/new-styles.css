@@ -797,15 +797,15 @@
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 
-.myb-WinLossIndicator_1.myb-WinLossIndicator-won_1 {
+.myb-WinLossIndicator.myb-WinLossIndicator-won {
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='6.5' cy='6.5' r='6.5' fill='%23189970'/%3E%3Cpath fill='%23FFF' fill-rule='nonzero' stroke='%23FFF' stroke-width='.3' d='M2.167 6.376L5.34 9.75l5.493-5.756-.663-.744-4.83 5.011-2.463-2.58z'/%3E%3C/g%3E%3C/svg%3E");
 }
-.myb-WinLossIndicator_2.myb-WinLossIndicator-won_2 {
+/* .myb-WinLossIndicator_2.myb-WinLossIndicator-won_2 {
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='6.5' cy='6.5' r='6.5' fill='%23189970'/%3E%3Cpath fill='%23FFF' fill-rule='nonzero' stroke='%23FFF' stroke-width='.3' d='M2.167 6.376L5.34 9.75l5.493-5.756-.663-.744-4.83 5.011-2.463-2.58z'/%3E%3C/g%3E%3C/svg%3E");
 }
 .myb-WinLossIndicator_3.myb-WinLossIndicator-won_3 {
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='6.5' cy='6.5' r='6.5' fill='%23189970'/%3E%3Cpath fill='%23FFF' fill-rule='nonzero' stroke='%23FFF' stroke-width='.3' d='M2.167 6.376L5.34 9.75l5.493-5.756-.663-.744-4.83 5.011-2.463-2.58z'/%3E%3C/g%3E%3C/svg%3E");
-}
+} */
 
 .myb-WinLossIndicator.myb-WinLossIndicator-lost, .myb-WinLossIndicator.myb-WinLossIndicator-placed, .myb-WinLossIndicator.myb-WinLossIndicator-won{
     animation: myb-TickWithBorder_TickGrowIn;
@@ -814,9 +814,11 @@
     background-size: 13px 13px;
 }
 
+.myb-WinLossIndicator.myb-WinLossIndicator-lost {
+    background: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='6.5' cy='6.5' r='6.5' fill='%23D05858'/%3E%3Cpath fill='%23FFF' d='M8.995 3.25l.766.766-2.489 2.49 2.49 2.49-.767.765-2.489-2.489-2.49 2.49-.766-.767 2.49-2.489-2.49-2.49.766-.766 2.49 2.49 2.49-2.49z'/%3E%3C/g%3E%3C/svg%3E" );
+}
 
-
-.myb-WinLossIndicator_1.myb-WinLossIndicator-lost, .myb-WinLossIndicator_1.myb-WinLossIndicator-placed, .myb-WinLossIndicator_1.myb-WinLossIndicator-won_1 {
+/* .myb-WinLossIndicator_1.myb-WinLossIndicator-lost, .myb-WinLossIndicator_1.myb-WinLossIndicator-placed, .myb-WinLossIndicator_1.myb-WinLossIndicator-won_1 {
     animation: myb-TickWithBorder_TickGrowIn;
     animation-duration: 0s;
     animation-duration: .5s;
@@ -834,11 +836,11 @@
     animation-duration: .5s;
     background-size: 13px 13px;
 }
+ */
 
 
 
-
-.myb-WinLossIndicator_1 {
+.myb-WinLossIndicator {
     width: 13px;
     height: 13px;
     position: absolute;
@@ -848,7 +850,7 @@
     top: 4px;
 }
 
-.myb-WinLossIndicator_2 {
+/* .myb-WinLossIndicator_2 {
     width: 13px;
     height: 13px;
     position: absolute;
@@ -866,7 +868,7 @@
     background-position: 50%;
     left: -18px;
     top: 4px;
-}
+} */
 
 
 

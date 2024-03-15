@@ -17,6 +17,11 @@ import { addBet, deleteBet, editBet, changeFlagForm, initStore } from "./Redux_t
 
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
+import {initBets, addBetsThunk} from "./Redux_t/thunk.js" 
+
+
+
+
 
 function Bet365 () {
 
@@ -24,7 +29,6 @@ function Bet365 () {
   const [flagBal, setFlagBal] = useState(false);
   const [flagMenu, setFlagMenu] = useState(false);
   
-  const data = useSelector( (state) => state.BETS.betsList );
   const balance = useSelector( state => state.BETS.balance )
 
   return (
@@ -91,7 +95,7 @@ function Bet365 () {
 
 
                 {/*  */}
-                    <ScrolApuestas data = { data }/>
+                    <ScrolApuestas />
                 {/*  */}
 
               </div>
@@ -109,182 +113,26 @@ function Bet365 () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const createBet = ( [ com1, com2, com3 ], [ cf1, cf2, cf3 ], [ resType1, resType2, resType3 ], id, sum ) => {
-  return { 
-    id: `${id}`, 
-    comands: [
-        { 
-            comands_name: [ com1, "Totales de goles"], 
-            cf: `${cf1}`, 
-            date: "",
-            res: { win: resType1}
-        },
-        { 
-            comands_name: [ com2, "Totales de goles"],
-            cf: `${cf2}`,
-            date: "",
-            res: { win: resType2}
-        },
-        { 
-            comands_name: [ com3, "Totales de goles"],
-            cf: `${cf3}`,
-            date: "",
-            res: { win: resType3} 
-        }
-    ], 
-
-    type: "Triples",
-    sum: `${sum}`
-  }
-
-}
-
-const joinHelperForm = ( arrInputs, id ) => {
-
-  const comands = []
-  const cf = []
-  const resType = []
-  let sum
-
-  for (let i = 0; i < arrInputs.length; i++) {
-    const element = arrInputs[i].value;
-    
-    if ( arrInputs[i].name.includes("sum") ) {
-      sum = arrInputs[i].value
-    }
-
-    if ( arrInputs[i].name.includes("comand") ) {
-      comands.push( element )
-    }
-
-    if ( arrInputs[i].name.includes("cf") ) {
-      cf.push( element )
-    }
-
-    if ( arrInputs[i].name.includes("res") ) {
-      resType.push( element )
-    }
-  }
-
-  return createBet( comands, cf, resType , id, sum )
-
-}
-
-
-
 function App() {
 
   const betsList = useSelector( (state) => state.BETS.betsList );
+  const formdata = useSelector( (state) => state.form  );
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
-    const id = betsList.length + 1
-
     e.preventDefault();
 
-    // запрос на добавление к бд
-    dispatch( addBet( joinHelperForm( e.target, id ) ) )
+    dispatch(  addBetsThunk( e, formdata )   )
     dispatch( changeFlagForm() )
-
   }
 
 
-
-
-  const payloadStore = [
-    { 
-        id: "1", 
-        comands: [
-            { 
-                comands_name: ["Atlas v Monterrey", "Totales de goles"], 
-                cf: "2.02", 
-                date: "",
-                res: { win: "Mas de 2.5"}
-            },
-            { 
-                comands_name: ["Atlas v Monterrey2", "Totales de goles"],
-                cf: "2.06",
-                date: "",
-                res: { win: "Menos de 2.5"}
-            },
-            { 
-                comands_name: ["Atlas v Monterrey3", "Totales de goles"],
-                cf: "1.95",
-                date: "",
-                res: { win: "Mas de 2.5"} 
-            }
-        ], 
-
-        type: "Triples",
-        sum: "760.00"
-    },
-
-    { 
-        id: "2", 
-        comands: [
-            { 
-                comands_name: ["Atlas v Monterrey", "Totales de goles"], 
-                cf: "2.02", 
-                date: "",
-                res: { win: "Mas de 2.5"}
-            },
-            { 
-                comands_name: ["Atlas v Monterrey2", "Totales de goles"],
-                cf: "2.06",
-                date: "",
-                res: { win: "Mas de 2.5"}
-            },
-            { 
-                comands_name: ["Atlas v Monterrey3", "Totales de goles"],
-                cf: "1.95",
-                date: "",
-                res: { win: "Mas de 2.5"}
-            }
-        ], 
-
-        type: "Triples",
-        sum: "760.00"
-    },
-
-  ]
-
-
-
-  const [state, setState] = useState(null);
-
-  const callBackendAPI = async () => {
-    const response = await fetch('/express_backend');
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message)
-    }
-    return body;
-  };
-
   useEffect(() => {
-    callBackendAPI()
-    .then(res => setState(res.express))
-    .catch(err => console.log(err));
+    dispatch( initBets() ) 
   }, [])
 
-  console.log(state);
+  console.log(betsList);
+  // console.log("forma", formdata);
 
   return (
     <Router>

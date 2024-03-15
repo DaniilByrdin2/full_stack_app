@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux"
 
 import { changeFlagForm, deleteAllBets, deleteBet } from "../../Redux_t/reducer.js"
 
+import { deleteAllThunk } from "../../Redux_t/thunk.js"
+
 import ContactForm from "./FormAddBets.js"
 import { Menu } from '../DropDownMenu/Menu.js';
 
@@ -14,6 +16,7 @@ import "./form.css"
 
 
 const ContactFormContainer = props => {
+
   const { handleSubmit } = props
   const flagForm = useSelector( (state) => state.BETS.flagForm )
 
@@ -43,14 +46,12 @@ const BetsList = () => {
 
           <button className="btn_add" onClick={ () => dispatch( changeFlagForm() ) }>Создать</button>
 
-
-          {/* запрос на удаление всего в бд */}
-          <button className="btn_delete" onClick={ () => dispatch( deleteAllBets() ) } >Удалить все</button>
+          <button className="btn_delete" onClick={ () => dispatch( deleteAllThunk() ) } >Удалить все</button>
         </div>
       </div>
 
       <div className='container_block_data_bets'> 
-        { betsList && betsList.map((el) => { return <DataBets data={el} /> })}
+        { betsList && betsList.map((el, i) => { return <DataBets idEl = { i } ID={ el.id } dataBet={el.dataBet} /> })}
       </div>
     </div>
   );
@@ -58,13 +59,21 @@ const BetsList = () => {
 
 
 
-const DataBets = ({data}) => {
+const DataBets = ({dataBet, idEl, ID}) => {
   const dispatch = useDispatch();
-  const { id, type, sum} = data
+
+  let type
+  let sum
+
+  if (dataBet) {
+     type = dataBet.type
+     sum = dataBet.sum
+  }
+  const id = ID 
 
   return (
     <div className={`container_data_bets data_bets_${id} `}>
-      <div>№{ id }</div>
+      <div>№{ idEl + 1}</div>
       <div>Тип: { type }</div>
       <div>Ставка: { sum }</div>
 
