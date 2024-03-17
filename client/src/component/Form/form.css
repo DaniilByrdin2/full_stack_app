@@ -74,7 +74,7 @@ img {
 
 }
 .flagMenu {
-    color: white;
+    /* color: white; */
     background-color: blueviolet;
     border-radius: 50%;
     padding: 5px;
@@ -85,23 +85,8 @@ img {
 
 
 
+/*  */
 
-
-/* form add */
-
-.submit_btn {
-
-    background-color: aqua;
-    border-radius: 50%;
-    padding: 5px;
-    width: 70px;
-
-    margin: 10px;
-}
-
-.container_submit_btn {
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
+.animated_btn_del {
+    color: white;
 }

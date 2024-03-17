@@ -1,13 +1,19 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "./swiper.js"
 import { Field, reduxForm } from "redux-form"
+import { useDispatch } from 'react-redux'
 
+import { cancelUpdateBet } from "../../Redux_t/Reducer.js"
 
+import { Swiper, SwiperSlide } from "./Swiper.js"
+
+import "./FormAdd.css"
 
 
 const ContactForm = ( { handleSubmit } ) => {
+    const dispatch = useDispatch();
 
     return (
+      <>
       <form className="container_form" onSubmit={handleSubmit}>
         <Swiper virtual navigation>
 
@@ -21,9 +27,11 @@ const ContactForm = ( { handleSubmit } ) => {
 
         </Swiper>
         <div className="container_submit_btn">
-          <button className="submit_btn" type="submit">Отправить</button>
+          <button id="submit_btn" type="submit">Отправить</button>
+          <button id="prev_btn" type="button" onClick={ () => dispatch( cancelUpdateBet() ) }>Назад</button>
         </div>
       </form>
+      </>
     );
 }
 

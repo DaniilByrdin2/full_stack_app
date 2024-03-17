@@ -1,8 +1,8 @@
 window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.myb-MyBetsHeader_Button').forEach( element => {
-        //console.log(element);
+
         element.addEventListener('click', (event) => {
-            //console.log(event.target);
+
             document.querySelectorAll('.myb-MyBetsHeader_Button').forEach(element => {
                 element.classList.remove('myb-MyBetsHeader_ButtonSelected');
             });

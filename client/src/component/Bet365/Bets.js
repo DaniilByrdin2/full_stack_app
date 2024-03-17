@@ -1,72 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux"
 
+export const ScrolApuestas = () => {
 
+  const data = useSelector( (state) => state.BETS.betsList ) ;
 
-
-const ResBet = ( { mas_menos_res, comands_name, cf, won_lost } ) => {
-
-    const strSplitTypeEvent = (str) => {
-      if (str === "undefined") return "undefined"
-
-      const res = []
-
-      for (let i = 0; i < str.length; i++) {
-        const el = str[i];
-        
-        if ( (str[i + 1] + str[i + 2]) === "de" ) {
-          res.push(el)
-          res.push(' ')
-        } else {
-          res.push(el)
-        }
-
-      }
-
-      return res.join('')
-    }
-
-    const typeBetsEvent = strSplitTypeEvent(comands_name[1])
-    const comand_name = `${comands_name[0][0]} v ${comands_name[0][1]}` 
-
-
-    return (
-      <div className="myb-BetParticipant myb-SettledBetParticipant ">
-        <div className="myb-BetParticipant_TopContainer ">
-          <div className="myb-BetParticipant_LeftContainer ">
-            <div className="myb-BetParticipant_HeaderTitle ">
-              {/* flag won los */}
-
-              <div className={`myb-WinLossIndicator myb-WinLossIndicator-${won_lost}`}></div>
-              <div className="myb-BetParticipant_HeaderText ">
-                <span className="myb-BetParticipant_ParticipantSpan ">{ mas_menos_res }
-                  <div className="myb-HalfAndHalfPill myb-HalfAndHalfPill_Status-1 ">
-                    <div className="myb-HalfAndHalfPill_TextStatus myb-HalfAndHalfPill_TextStatus-1 ">
-                      <div className="myb-HalfAndHalfPill_TextStatusLHS myb-HalfAndHalfPill_TextStatusLHS-1 "></div>
-                      <div className="myb-HalfAndHalfPill_Slash"></div>
-                      <div className="myb-HalfAndHalfPill_TextStatusRHS myb-HalfAndHalfPill_TextStatusRHS-1 "></div>
-                    </div>
-                  </div>
-                </span>
+  return (
+      <div className="myb-MyBetsScroller">
+          <div>
+              <div className="myb-MyBets_Container ">
+                { data && data.map( (el) => {
+                  return  <Bets key={el.id} bet={el}  />
+                })}
               </div>
-
-            </div>
-
-            <div className="bets_left">
-              <div className="myb-BetParticipant_MarketDescription ">{ typeBetsEvent }</div>
-            </div>
-            <div className=" bets_left myb-BetParticipant_FixtureDescription myb-SettledBetParticipant_FixtureDescription ">
-              <div className="myb-BetParticipant_FixtureName ">{ comand_name }</div>
-            </div>
-
-            <div>
-              <div></div>
-            </div>
           </div>
-          <div className="myb-BetParticipant_HeaderOdds ">{cf}</div>
-        </div>
       </div>
-    );
+  )
 }
 
 
@@ -106,28 +55,6 @@ const Bets = ( { bet } ) => {
     }
     }
 
-    const totalSum = () => {
-      let cf = 1;
-
-      bet.dataBet.comands.reduce( (acc, el) => cf = acc * (+el.cf) , cf )
-
-      const rounded = number => +number.toFixed(2) 
-
-      const res = rounded( cf * ( Number.parseFloat(bet.dataBet.sum) ) )
-      const totalSum = Math.trunc( res )
-
-      let dr = String( rounded( res - totalSum ) ).split(".")[1]
-
-      if (!dr) {
-        dr = "00"
-      } else if (dr.length !== 2) {
-        dr += "0"
-      }
-
-      return [ totalSum, dr ]
-
-    }
-
     const mas_menos = () => {
 
       const splitStr = (str = 'undefined') => {
@@ -146,6 +73,8 @@ const Bets = ( { bet } ) => {
 
     const marker_mas_menos = mas_menos()
     const sumBetTrunc = Math.trunc( Number.parseFloat(bet.dataBet.sum) )
+    const totalSum = bet.dataBet.totalSum
+    
 
     return (
       <>
@@ -163,7 +92,7 @@ const Bets = ( { bet } ) => {
               </div>
               <div className="myb-SettledBetItem_BetStateContainer ">
                 <div className="myb-SettledBetItem_BetStateWrapper">
-                  <div className="myb-SettledBetItem_BetReturnLabel ">{totalSum()[0]},{totalSum()[1]}€</div>
+                  <div className="myb-SettledBetItem_BetReturnLabel ">{ totalSum }€</div>
                   <div className="myb-SettledBetItem_BetStateLabel ">Ganancias pot. obtenidas</div>
                 </div>
               </div>
@@ -198,7 +127,7 @@ const Bets = ( { bet } ) => {
                     <div className="myb-SettledBetItemFooter_BetInformationLabel block_just_left">Ganancias</div>
                     <div className="myb-SettledBetItemFooter_ReturnTextWrapper block_just_left">
                       <span className="myb-SettledBetItemFooter_TextCurrency "></span>
-                      <span className="myb-SettledBetItemFooter_BetInformationText ">{totalSum()[0]},{totalSum()[1]}€</span>
+                      <span className="myb-SettledBetItemFooter_BetInformationText ">{ totalSum }€</span>
                     </div>
                   </div>
                 </div>
@@ -215,23 +144,67 @@ const Bets = ( { bet } ) => {
     );
 }
 
+const ResBet = ( { mas_menos_res, comands_name, cf, won_lost } ) => {
+
+  const strSplitTypeEvent = (str) => {
+    if (str === "undefined") return "undefined"
+
+    const res = []
+
+    for (let i = 0; i < str.length; i++) {
+      const el = str[i];
+      
+      if ( (str[i + 1] + str[i + 2]) === "de" ) {
+        res.push(el)
+        res.push(' ')
+      } else {
+        res.push(el)
+      }
+
+    }
+
+    return res.join('')
+  }
+
+  const typeBetsEvent = strSplitTypeEvent(comands_name[1])
+  const comand_name = `${comands_name[0][0]} v ${comands_name[0][1]}` 
 
 
+  return (
+    <div className="myb-BetParticipant myb-SettledBetParticipant ">
+      <div className="myb-BetParticipant_TopContainer ">
+        <div className="myb-BetParticipant_LeftContainer ">
+          <div className="myb-BetParticipant_HeaderTitle ">
+            {/* flag won los */}
 
-
-export const ScrolApuestas = () => {
-
-    const data = useSelector( (state) => state.BETS.betsList );
-
-    return (
-        <div className="myb-MyBetsScroller">
-            <div>
-                <div className="myb-MyBets_Container ">
-                  { data && data.map( (el) => {
-                    return  <Bets key={el.id} bet={el}  />
-                  })}
+            <div className={`myb-WinLossIndicator myb-WinLossIndicator-${won_lost}`}></div>
+            <div className="myb-BetParticipant_HeaderText ">
+              <span className="myb-BetParticipant_ParticipantSpan ">{ mas_menos_res }
+                <div className="myb-HalfAndHalfPill myb-HalfAndHalfPill_Status-1 ">
+                  <div className="myb-HalfAndHalfPill_TextStatus myb-HalfAndHalfPill_TextStatus-1 ">
+                    <div className="myb-HalfAndHalfPill_TextStatusLHS myb-HalfAndHalfPill_TextStatusLHS-1 "></div>
+                    <div className="myb-HalfAndHalfPill_Slash"></div>
+                    <div className="myb-HalfAndHalfPill_TextStatusRHS myb-HalfAndHalfPill_TextStatusRHS-1 "></div>
+                  </div>
                 </div>
+              </span>
             </div>
+
+          </div>
+
+          <div className="bets_left">
+            <div className="myb-BetParticipant_MarketDescription ">{ typeBetsEvent }</div>
+          </div>
+          <div className=" bets_left myb-BetParticipant_FixtureDescription myb-SettledBetParticipant_FixtureDescription ">
+            <div className="myb-BetParticipant_FixtureName ">{ comand_name }</div>
+          </div>
+
+          <div>
+            <div></div>
+          </div>
         </div>
-    )
+        <div className="myb-BetParticipant_HeaderOdds ">{cf}</div>
+      </div>
+    </div>
+  );
 }

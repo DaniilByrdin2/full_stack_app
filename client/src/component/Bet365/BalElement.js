@@ -1,8 +1,6 @@
 import React from "react";
 
 
-
-
 export const BalElement = ({balance}) => {
 
     function animateSvg() {

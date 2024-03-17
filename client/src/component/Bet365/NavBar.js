@@ -38,19 +38,22 @@ export const MyBetsHeaderMouse = () => {
 
     return (
       <div class="myb-MyBetsHeader myb-MyBetsHeader-mouse  ">
-        <div class="myb-MyBetsHeader_Scroller " onClick={ (e) => handleClick(e) }>
+        <div class="myb-MyBetsHeader_Scroller " onClick={(e) => handleClick(e)}>
           <div id="1" data-content="Cerrar apuesta" class="myb-HeaderButton">
-            <div id="navSlider" class="myb-NavBarSlider"></div>Cerrar apuesta</div>
-          <div id="2" data-content="Directo" class="myb-HeaderButton">
-            <div id="navSlider" class="myb-NavBarSlider"></div>Directo</div>
-          <div id="3" data-content="Pendiente" class="myb-HeaderButton">
-            <div id="navSlider" class="myb-NavBarSlider"></div>Pendiente</div>
-          <div id="4" data-content="Determinadas" class="myb-HeaderButton">
-            <div id="navSlider" class="myb-NavBarSlider"></div>Determinadas</div>
-          <div id="5" data-content="Todos" class="myb-HeaderButton ">
-            <div id="navSlider" class="myb-NavBarSlider"></div>Todo 
+            <div id="navSlider" class="myb-NavBarSlider"></div>Cerrar apuesta
           </div>
-          {/* <div id="navSlider" class="myb-NavBarSlider"></div> */}
+          <div id="2" data-content="Directo" class="myb-HeaderButton">
+            <div id="navSlider" class="myb-NavBarSlider"></div>Directo
+          </div>
+          <div id="3" data-content="Pendiente" class="myb-HeaderButton">
+            <div id="navSlider" class="myb-NavBarSlider"></div>Pendiente
+          </div>
+          <div id="4" data-content="Determinadas" class="myb-HeaderButton">
+            <div id="navSlider" class="myb-NavBarSlider"></div>Determinadas
+          </div>
+          <div id="5" data-content="Todos" class="myb-HeaderButton ">
+            <div id="navSlider" class="myb-NavBarSlider"></div>Todo
+          </div>
         </div>
       </div>
     );

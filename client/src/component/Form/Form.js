@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 import { useSelector, useDispatch } from "react-redux"
 
-import { changeFlagForm, deleteAllBets, deleteBet } from "../../Redux_t/reducer.js"
+import { changeFlagForm, changeFlagUpdateBet, cancelUpdateBet, } from "../../Redux_t/Reducer.js"
 
-import { deleteAllThunk } from "../../Redux_t/thunk.js"
+import { deleteAllThunk, deleteBetThunk, initBets } from "../../Redux_t/Thunk/Thunk.js"
 
 import ContactForm from "./FormAddBets.js"
 import { Menu } from '../DropDownMenu/Menu.js';
@@ -12,13 +12,23 @@ import { Menu } from '../DropDownMenu/Menu.js';
 import deletePng from "./Icons/delete.png"
 import settingPng from "./Icons/settingPng.png"
 
-import "./form.css"
+import "./Form.css"
 
 
 const ContactFormContainer = props => {
 
   const { handleSubmit } = props
+  const dispatch = useDispatch();
   const flagForm = useSelector( (state) => state.BETS.flagForm )
+  const flagUpdate = useSelector( (state) => state.BETS.flagUpdate );
+
+  // useEffect(() => {
+
+  //   if (flagUpdate) {
+  //     dispatch(initBets());
+  //     console.log("useEffect");
+  //   }
+  // }, [ flagUpdate ]);
 
   return (
     <div className="container_stavki">
@@ -36,17 +46,24 @@ const BetsList = () => {
 
   const [ flagMenu, setFlagMenu ] = useState(false)
 
+  function animated_btn( target ) {
+    target.classList.add("animated_btn_del");
+    setTimeout(() => {
+      target.classList.remove("animated_btn_del");
+    }, 200);
+  }
+  
   return (
     <div>
       <div className="container_btn">
-        <div>
-          <button onClick={ () => setFlagMenu( (prev) => !prev ) } className = { flagMenu ? "flagMenu" : " flagMenu active_btn" } >Меню</button>
+        <div onClick={ (e) => animated_btn(e.target) }>
+          <button className="flagMenu" onClick={ () => setFlagMenu( (prev) => !prev ) } >Меню</button>
 
           { flagMenu && <div className='cnt_menu_form'><Menu /></div> }
 
-          <button className="btn_add" onClick={ () => dispatch( changeFlagForm() ) }>Создать</button>
+          <button className="btn_add" onClick={ (e) => { dispatch( changeFlagForm() ) } }>Создать</button>
 
-          <button className="btn_delete" onClick={ () => dispatch( deleteAllThunk() ) } >Удалить все</button>
+          <button id="btn_del" className="btn_delete" onClick={ (e) => { dispatch( deleteAllThunk()) } } >Удалить все</button>
         </div>
       </div>
 
@@ -60,15 +77,10 @@ const BetsList = () => {
 
 
 const DataBets = ({dataBet, idEl, ID}) => {
-  const dispatch = useDispatch();
 
-  let type
-  let sum
+  const dispatch = useDispatch() 
 
-  if (dataBet) {
-     type = dataBet.type
-     sum = dataBet.sum
-  }
+  const { type, sum, totalSum } = dataBet
   const id = ID 
 
   return (
@@ -77,15 +89,11 @@ const DataBets = ({dataBet, idEl, ID}) => {
       <div>Тип: { type }</div>
       <div>Ставка: { sum }</div>
 
-
-
-      {/* запрос на перезапись строки в бд по id */}
-      <button>
+      <button onClick={ () => { dispatch( changeFlagUpdateBet(id) ) } }>
         <img src={ settingPng } alt='settingPng' className='settingPng'></img>
       </button>
 
-      {/* запрос на удаление к бд по id */}
-      <button onClick={ () => dispatch( deleteBet(id) ) }>
+      <button onClick={ () => dispatch( deleteBetThunk( id, totalSum ) ) } >
         <img src={ deletePng } alt='delPng' className='delPng'></img>
       </button>
 

@@ -1,0 +1,29 @@
+
+#prev_btn,
+#submit_btn {
+    border-radius: 50%;
+    padding: 5px;
+    width: 90px;
+    color: white;
+    margin: 10px;
+}
+
+#submit_btn {
+    background-color: green;
+}
+#prev_btn {
+    background-color: blueviolet;
+}
+
+
+.container_submit_btn {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.container_form {
+    margin-top: 35px;
+}

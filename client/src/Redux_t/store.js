@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import betsReducer from "./reducer.js"
+import betsReducer from "./Reducer.js"
 
 import { reducer as formReducer } from 'redux-form'
 
