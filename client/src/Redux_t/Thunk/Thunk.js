@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import {initStore, deleteAllBets, deleteBet, editBet, changeFlagForm, changeUpdateId, addBet } from "../Reducer"
+import {initStore, deleteAllBets, deleteBet, editBet, changeFlagForm, changeUpdateId, addBet } from "../reducer"
 import { stringToJson, joinHelperForm } from "../Helpers_Function/Helper"
 
 

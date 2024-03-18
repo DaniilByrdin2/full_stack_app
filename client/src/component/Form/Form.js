@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 
 import { useSelector, useDispatch } from "react-redux"
 
-import { changeFlagForm, changeFlagUpdateBet, cancelUpdateBet, } from "../../Redux_t/Reducer.js"
+import { changeFlagForm, changeFlagUpdateBet,  } from "../../Redux_t/reducer.js"
 
-import { deleteAllThunk, deleteBetThunk, initBets } from "../../Redux_t/Thunk/Thunk.js"
+import { deleteAllThunk, deleteBetThunk } from "../../Redux_t/Thunk/Thunk.js"
 
 import ContactForm from "./FormAddBets.js"
 import { Menu } from '../DropDownMenu/Menu.js';
@@ -12,7 +12,7 @@ import { Menu } from '../DropDownMenu/Menu.js';
 import deletePng from "./Icons/delete.png"
 import settingPng from "./Icons/settingPng.png"
 
-import "./Form.css"
+import "./form.css"
 
 
 const ContactFormContainer = props => {

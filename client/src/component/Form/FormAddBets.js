@@ -2,9 +2,9 @@ import React from "react";
 import { Field, reduxForm } from "redux-form"
 import { useDispatch } from 'react-redux'
 
-import { cancelUpdateBet } from "../../Redux_t/Reducer.js"
+import { cancelUpdateBet } from "../../Redux_t/reducer.js"
 
-import { Swiper, SwiperSlide } from "./Swiper.js"
+import { Swiper, SwiperSlide } from "./swiper.js"
 
 import "./FormAdd.css"
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { register } from 'swiper/element/bundle';
 
-import "./Swiper.css"
+import "./swiper.css"
 
 
 export function Swiper(props) {

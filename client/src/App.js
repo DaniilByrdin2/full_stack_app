@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 
-import { editBet, changeFlagForm, changeUpdateId } from "./Redux_t/Reducer.js"
+import { editBet, changeFlagForm, changeUpdateId } from "./Redux_t/reducer.js"
 import { updateThunk } from "./Redux_t/Thunk/Thunk.js"
 import {initBets, addBetsThunk} from "./Redux_t/Thunk/Thunk.js" 
 
